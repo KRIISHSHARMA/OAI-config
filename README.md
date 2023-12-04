@@ -89,6 +89,7 @@ Based on the CORSET **Multiplexing pattern** & Frequency Range following 38.213 
 - [reference](https://www.linkedin.com/pulse/5g-nr-controlresourcesetzero-corseset0-search-space-zero-chelikani/)
 
 
+###########################################################################
 
 
 
