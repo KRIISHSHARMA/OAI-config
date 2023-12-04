@@ -1,5 +1,4 @@
 # config
-## Identification parameter
 ``` bash
  ////////// Identification parameters:
     gNB_ID    =  0xe00;
@@ -36,7 +35,8 @@
   - NCI = gNB_ ID * 2^(36-gNB_ID_bit_length) + CI
 Example: gNB_ ID_ When the length is 24 bits, the CI length is 12 bits, NCI=gNBID * (2 ^ 12)+CI=gNBID * 4096+CI. Because CI occupies the 12th place, there are a total of 4096 communities [here](https://www.telecomhall.net/t/what-is-the-formula-for-cell-id-nci-in-5g-nr-networks/12623/8)
 
-## 
+###########################################################################
+
 ``` bash
  ////////// Physical parameters:
 
@@ -46,6 +46,7 @@ Example: gNB_ ID_ When the length is 24 bits, the CI length is 12 bits, NCI=gNBI
     do_SRS                = 0 ;
     sib1_tda			  = 15;
 ```
+###########################################################################
 
 ``` bash 
     pdcch_ConfigSIB1 = (
@@ -90,6 +91,70 @@ Based on the CORSET **Multiplexing pattern** & Frequency Range following 38.213 
 
 
 ###########################################################################
+
+``` bash
+
+   servingCellConfigCommon = (
+    {
+```
+``` bash 
+#spCellConfigCommon
+
+      physCellId                                                    = 0;
+```
+- PCI range from 0 to 1007
+  
+![Screenshot from 2023-12-04 22-34-47](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/384706f1-c253-4599-8ab5-347b9a05c095)
+
+- NID(1) = SSS ; NID(2) = PSS 
+
+``` bash 
+# n_TimingAdvanceOffset                                         = 0;
+```
+- query
+
+``` bash 
+#  downlinkConfigCommon
+    #frequencyInfoDL
+      # this is 3450.72 MHz (center frequency)
+      absoluteFrequencySSB                                          = 630048;
+      dl_frequencyBand                                              = 78;
+      # this is 3401.58 MHz
+      dl_absoluteFrequencyPointA                                    = 626772;
+      #scs-SpecificCarrierList
+        dl_offstToCarrier                                           = 0;
+# subcarrierSpacing
+# 0=kHz15, 1=kHz30, 2=kHz60, 3=kHz120
+        dl_subcarrierSpacing                                        = 1;
+        dl_carrierBandwidth                                         = 273;
+     #initialDownlinkBWP
+      #genericParameters
+       initialDLBWPlocationAndBandwidth                             = 1099; #38.101-1 Table 5.3.2-1
+       
+```
+![unnamed](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/9552de5a-6f65-4576-bc16-2df16473d4de)
+![Screenshot from 2023-12-04 22-50-38](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/375a9f76-cf6c-47f9-9587-e77803181b7f)
+![Screenshot from 2023-12-04 22-51-02](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/803fc0ef-eab0-42bc-8413-db02e81e65e1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
