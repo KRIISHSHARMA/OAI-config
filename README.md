@@ -202,10 +202,19 @@ Preamble for Msg1. These are also applicable to the MSGA PRACH if the PRACH occa
 ![Screenshot from 2023-12-05 18-47-01](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/921d09c4-17af-4893-9843-b7d9a2278062)
 ![Screenshot from 2023-12-05 18-47-24](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/c0657651-15cb-41a9-baac-ff90573eb1c3)
 
-- reference : 3GPP TS 38.211 version 16.2.0 Release 16 Table 6.3.3.2-3
+- [reference](https://www.sharetechnote.com/html/5G/5G_RACH.html) : 3GPP TS 38.211 version 16.2.0 Release 16 Table 6.3.3.2-3
 ![Screenshot from 2023-12-05 18-51-32](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/4efd7916-a2a0-48b1-8f1b-59e6556aef52)
 
-
+``` bash
+#prach_msg1_FDM
+#0 = one, 1=two, 2=four, 3=eight
+          prach_msg1_FDM                                            = 0;
+          prach_msg1_FrequencyStart                                 = 22;
+          zeroCorrelationZoneConfig                                 = 15; #thamizh change
+          preambleReceivedTargetPower                               = -100; #-84 #Luis -70; #thamizh change
+#preamblTransMax (0...10) = (3,4,5,6,7,8,10,20,50,100,200)
+          preambleTransMax                                          = 7; #thamizh change
+```
 
 
 
