@@ -55,7 +55,8 @@ Example: gNB_ ID_ When the length is 24 bits, the CI length is 12 bits, NCI=gNBI
         searchSpaceZero = 0;
       }
     );
-``` 
+```
+- [reference](https://www.sharetechnote.com/html/5G/5G_CommonSearchSpace_Type0_PDCCH.html)
 - **PDCCH_ConfigSIB1**  = Value of this IE is a 8 bits length , for example **178** , converting to binary will give `1011 0010`
   - First 4 bits (MSB) will determine the "controlResourceSetZero" Index , this will indicate the Number of RB/symbols used to determine the CORESET seize of the type0 PDCCH Common Seasrch Space. In the above example **11** i.e `1011`
   - Last 4 Bits (LSB) will determine the "searchSpaceZero" Index, this will indicate the PDCCH Monitoring Occasions , meaning the System Frame Number & Slot Index that the UE need to monitor for the Type0-PDCCH common search space . In above example **2** i.e `0010`
