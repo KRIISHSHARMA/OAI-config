@@ -140,6 +140,8 @@ Based on the CORSET **Multiplexing pattern** & Frequency Range following 38.213 
 - [initialDLBWPlocationAndBandwidth](https://www.linkedin.com/pulse/location-bandwidth-abhishek-ranjan/)  
 ![Screenshot from 2023-12-05 10-09-58](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/983f711d-2f69-44c4-952d-4da22b492294)
 
+- table from 3GPP `TS 38.508-1 V17.5.0 (2022-06) - 4.3.1.0D-1`
+
 
 
 
