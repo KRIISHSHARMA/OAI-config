@@ -145,7 +145,7 @@ Based on the CORSET **Multiplexing pattern** & Frequency Range following 38.213 
 - **dl_offstToCarrier** : if dl_offstToCarrier is equal to 0, it means that the starting point of the communication at Point A aligns perfectly with the carrier frequency. There is no shift or difference in frequency; they match up directly. It's like saying they are on the same page in terms of where they are operating in the wireless spectrum.
 - [Reference](https://www.techplayon.com/5g-nr-ssb-positioning-time-and-frequency-resources/)
 
-- [initialDLBWPlocationAndBandwidth](https://www.linkedin.com/pulse/location-bandwidth-abhishek-ranjan/)  
+- [initialDLBWPlocationAndBandwidth](https://www.linkedin.com/pulse/location-bandwidth-abhishek-ranjan/)  : CORRECTION **Max RBs would be 272 hence end point of the exmaple given above would be 272**
 ![Screenshot from 2023-12-05 10-09-58](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/983f711d-2f69-44c4-952d-4da22b492294)
 
 - table from 3GPP `TS 38.508-1 V17.5.0 (2022-06) - 4.3.1.0D-1`
