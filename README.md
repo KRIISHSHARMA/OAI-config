@@ -187,9 +187,23 @@ Based on the CORSET **Multiplexing pattern** & Frequency Range following 38.213 
 on a cell level. Pmax was configured to 23 dBm (200 mW)
    - [reference](https://www.techplayon.com/5g-nr-ue-power-classes/#)
 
+``` bash
+# subcarrierSpacing
+# 0=kHz15, 1=kHz30, 2=kHz60, 3=kHz120
+        initialULBWPsubcarrierSpacing                               = 1;
+      #rach-ConfigCommon
+        #rach-ConfigGeneric
+          prach_ConfigurationIndex                                  = 159; #thamizh change
+```
+- **prach-ConfigurationIndex** : the available set of PRACH occasions for the transmission of the Random Access
+Preamble for Msg1. These are also applicable to the MSGA PRACH if the PRACH occasions are shared between 2-step and 4-step RA types; 
 
 
+![Screenshot from 2023-12-05 18-47-01](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/921d09c4-17af-4893-9843-b7d9a2278062)
+![Screenshot from 2023-12-05 18-47-24](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/c0657651-15cb-41a9-baac-ff90573eb1c3)
 
+- reference : 3GPP TS 38.211 version 16.2.0 Release 16 Table 6.3.3.2-3
+![Screenshot from 2023-12-05 18-51-32](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/4efd7916-a2a0-48b1-8f1b-59e6556aef52)
 
 
 
