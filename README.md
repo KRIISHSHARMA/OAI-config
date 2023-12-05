@@ -142,6 +142,7 @@ Based on the CORSET **Multiplexing pattern** & Frequency Range following 38.213 
 - **absoluteFrequencyPointA** : It represents the common reference point A
 - **offsetToPointA** = It defines the frequency offset between point A and the lowest subcarrier of the RB overlapping with SSB. The unit for RB is expressed as 15KHz for FR1 and 60 KHz for FR2
 - **Kssb** = it defines the frequency of RB#0 of SSB and The unit for RB is expressed as 15KHz for FR1 and 60 KHz for FR2
+- **dl_offstToCarrier** : if dl_offstToCarrier is equal to 0, it means that the starting point of the communication at Point A aligns perfectly with the carrier frequency. There is no shift or difference in frequency; they match up directly. It's like saying they are on the same page in terms of where they are operating in the wireless spectrum.
 - [Reference](https://www.techplayon.com/5g-nr-ssb-positioning-time-and-frequency-resources/)
 
 - [initialDLBWPlocationAndBandwidth](https://www.linkedin.com/pulse/location-bandwidth-abhishek-ranjan/)  
@@ -159,10 +160,32 @@ Based on the CORSET **Multiplexing pattern** & Frequency Range following 38.213 
 ```
 - scroll up 
 
+``` bash
 
+  #uplinkConfigCommon
+     #frequencyInfoUL
+      ul_frequencyBand                                              = 78;
+      #scs-SpecificCarrierList
+      ul_offstToCarrier                                             = 0;
+# subcarrierSpacing
+# 0=kHz15, 1=kHz30, 2=kHz60, 3=kHz120
+      ul_subcarrierSpacing                                          = 1;
+      ul_carrierBandwidth                                           = 273;
+      pMax                                                          = 23;
+     #initialUplinkBWP
+      #genericParameters
+        initialULBWPlocationAndBandwidth                            = 1099;
+```
 
+- **ul_frequencyBand** : [n78](https://en.wikipedia.org/wiki/5G_NR_frequency_bands)
+- **ul_offstToCarrier** :  If ul_offstToCarrier is equal to 0, it means that there is no frequency offset between the reference point (usually associated with the uplink, denoted by "ul") and the lowest usable subcarrier on the carrier. In other words, Point A aligns with the starting point of the carrier frequency, and there is no need to shift or offset the frequency in the uplink direction.If ul_offstToCarrier is equal to 0, it means that the starting point of the data transmission in the uplink (from your device, like a smartphone) aligns perfectly with the main frequency that the 5G network is using. There is no need for any adjustment or shift in the frequency for the uplink transmission. It's like your device is directly tuned to the right frequency without any offset.
 
+- **ul_carrierBandwidth** = 273 i.e 100MHz
+ ![unnamed](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/9552de5a-6f65-4576-bc16-2df16473d4de)
 
+- **pMAX** : The parameter Pmax is usually configured by the network
+on a cell level. Pmax was configured to 23 dBm (200 mW)
+   - [reference](https://www.techplayon.com/5g-nr-ue-power-classes/#)
 
 
 
