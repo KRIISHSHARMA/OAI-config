@@ -130,7 +130,7 @@ Based on the CORSET **Multiplexing pattern** & Frequency Range following 38.213 
         dl_carrierBandwidth                                         = 273;
      #initialDownlinkBWP
       #genericParameters
-       initialDLBWPlocationAndBandwidth                             = 1099; #38.101-1 Table 5.3.2-1
+       initialDLBWPlocationAndBandwidth                             = 1099; #38.101-1 Table 5.3.2-1 , TS 38.508-1 V17.5.0 (2022-06) - 4.3.1.0D-1
        
 ```
 ![unnamed](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/9552de5a-6f65-4576-bc16-2df16473d4de)
@@ -146,6 +146,7 @@ Based on the CORSET **Multiplexing pattern** & Frequency Range following 38.213 
 - [Reference](https://www.techplayon.com/5g-nr-ssb-positioning-time-and-frequency-resources/)
 
 - [initialDLBWPlocationAndBandwidth](https://www.linkedin.com/pulse/location-bandwidth-abhishek-ranjan/)  : CORRECTION **Max RBs would be 272 hence end point of the exmaple given above would be 272**
+
 ![Screenshot from 2023-12-05 10-09-58](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/983f711d-2f69-44c4-952d-4da22b492294)
 
 - table from 3GPP `TS 38.508-1 V17.5.0 (2022-06) - 4.3.1.0D-1`
