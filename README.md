@@ -148,7 +148,15 @@ Based on the CORSET **Multiplexing pattern** & Frequency Range following 38.213 
 
 - table from 3GPP `TS 38.508-1 V17.5.0 (2022-06) - 4.3.1.0D-1`
 
-
+``` bash
+# subcarrierSpacing
+# 0=kHz15, 1=kHz30, 2=kHz60, 3=kHz120
+        initialDLBWPsubcarrierSpacing                               = 1;
+      #pdcch-ConfigCommon
+        initialDLBWPcontrolResourceSetZero                          = 11; #thamizh change
+        initialDLBWPsearchSpaceZero                                 = 0;
+```
+- scroll up 
 
 
 
