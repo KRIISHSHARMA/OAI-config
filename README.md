@@ -135,7 +135,13 @@ Based on the CORSET **Multiplexing pattern** & Frequency Range following 38.213 
 ![unnamed](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/9552de5a-6f65-4576-bc16-2df16473d4de)
 ![Screenshot from 2023-12-04 22-50-38](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/375a9f76-cf6c-47f9-9587-e77803181b7f)
 ![Screenshot from 2023-12-04 22-51-02](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/803fc0ef-eab0-42bc-8413-db02e81e65e1)
+![Screenshot from 2023-12-05 10-25-45](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/8175d883-5ded-4c46-b48c-a46f6ff0abec)
 
+- **absoluteFrequencySSB** : It represent the center frequency of SSB Block
+- **absoluteFrequencyPointA** : It represents the common reference point A
+- **offsetToPointA** = It defines the frequency offset between point A and the lowest subcarrier of the RB overlapping with SSB. The unit for RB is expressed as 15KHz for FR1 and 60 KHz for FR2
+- **Kssb** = it defines the frequency of RB#0 of SSB and The unit for RB is expressed as 15KHz for FR1 and 60 KHz for FR2
+- [Reference](https://www.techplayon.com/5g-nr-ssb-positioning-time-and-frequency-resources/)
 
 - [initialDLBWPlocationAndBandwidth](https://www.linkedin.com/pulse/location-bandwidth-abhishek-ranjan/)  
 ![Screenshot from 2023-12-05 10-09-58](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/983f711d-2f69-44c4-952d-4da22b492294)
