@@ -217,7 +217,7 @@ Preamble for Msg1. These are also applicable to the MSGA PRACH if the PRACH occa
           preambleTransMax                                          = 7; #thamizh change
 ```
 
-
+- **prach_msg1_FDM**
 
 
 
