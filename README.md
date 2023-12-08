@@ -46,6 +46,9 @@ Example: gNB_ ID_ When the length is 24 bits, the CI length is 12 bits, NCI=gNBI
     do_SRS                = 0 ;
     sib1_tda			  = 15;
 ```
+
+- Query
+
 ###########################################################################
 
 ``` bash 
