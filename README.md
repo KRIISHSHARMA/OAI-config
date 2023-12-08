@@ -219,7 +219,7 @@ Preamble for Msg1. These are also applicable to the MSGA PRACH if the PRACH occa
           prach_msg1_FDM                                            = 0; # ENUMERATED {one, two, four, eight}, 
           prach_msg1_FrequencyStart                                 = 22; # INTEGER (0..maxNrofPhysicalResourceBlocks-1), 
           zeroCorrelationZoneConfig                                 = 15; #thamizh change # INTEGER(0..15)
-          preambleReceivedTargetPower                               = -100; #-84 #Luis -70; #thamizh change # INTEGER (-202..-60)
+          preambleReceivedTargetPower                               = -100; #-84 #Luis -70; #thamizh change # INTEGER (-202..-60) in db 
 #preamblTransMax (0...10) = (3,4,5,6,7,8,10,20,50,100,200)
           preambleTransMax                                          = 7; #thamizh change
 ```
@@ -248,7 +248,7 @@ Preamble for Msg1. These are also applicable to the MSGA PRACH if the PRACH occa
   - In summary, the negative sign likely indicates a weaker signal compared to a reference, and the requirement for multiples of 2 might be a technical choice for the representation and handling of power levels in the specific system or protocol.
 
 
-
+- **preambleTransMax** :  Max number of RA preamble transmission performed before declaring a failure (see TS 38.321 [3], clauses 5.1.4, 5.1.5).
 
 
 
