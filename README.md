@@ -209,18 +209,58 @@ Preamble for Msg1. These are also applicable to the MSGA PRACH if the PRACH occa
 - [reference](https://www.sharetechnote.com/html/5G/5G_RACH.html) : 3GPP TS 38.211 version 16.2.0 Release 16 Table 6.3.3.2-3
 ![Screenshot from 2023-12-05 18-51-32](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/4efd7916-a2a0-48b1-8f1b-59e6556aef52)
 
+
+
+
+
 ``` bash
 #prach_msg1_FDM
 #0 = one, 1=two, 2=four, 3=eight
-          prach_msg1_FDM                                            = 0;
-          prach_msg1_FrequencyStart                                 = 22;
-          zeroCorrelationZoneConfig                                 = 15; #thamizh change
-          preambleReceivedTargetPower                               = -100; #-84 #Luis -70; #thamizh change
+          prach_msg1_FDM                                            = 0; # ENUMERATED {one, two, four, eight}, 
+          prach_msg1_FrequencyStart                                 = 22; # INTEGER (0..maxNrofPhysicalResourceBlocks-1), 
+          zeroCorrelationZoneConfig                                 = 15; #thamizh change # INTEGER(0..15)
+          preambleReceivedTargetPower                               = -100; #-84 #Luis -70; #thamizh change # INTEGER (-202..-60)
 #preamblTransMax (0...10) = (3,4,5,6,7,8,10,20,50,100,200)
           preambleTransMax                                          = 7; #thamizh change
 ```
 
-- **prach_msg1_FDM**
+
+- [reference](https://www.nrexplained.com/rrc#RACHConfigGeneric)
+- **prach_msg1_FDM** : The number of PRACH transmission occasions FDMed in one time instance. (see TS 38.211 [16], clause 6.3.3.2).
+  - The "FDM" in "msg1-FDM" stands for Frequency Domain Multiplexing. This implies that multiple Physical Random Access Channel (PRACH) transmission occasions are multiplexed in the frequency domain within one time instance. The PRACH is used by the UE to initiate communication with the network. So, "msg1-FDM" indicates that several PRACH transmission occasions are combined or multiplexed in the frequency domain during a specific time instance, likely to improve efficiency and utilize the available spectrum effectively. The exact number of PRACH transmission occasions FDMed in one time instance would be determined by the configuration and requirements of the specific 5G network deployment.
+  - If "msg1-FDM = 2(1)," it likely means that, during the Random Access procedure in 5G, two PRACH transmission occasions are multiplexed in the frequency domain within one time instance. In other words, two devices or User Equipments (UEs) are attempting to initiate communication with the network at the same time, and their PRACH transmissions are separated in the frequency domain to avoid interference. This configuration may be part of the network's strategy to efficiently handle multiple devices attempting to connect simultaneously. The exact implications of "msg1-FDM = 2" would depend on the specific design and parameters of the 5G network being used.
+
+
+- **prach_msg1_FrequencyStart** : Offset of lowest PRACH transmission occasion in frequency domain with respective to PRB 0. The value is configured so that the corresponding RACH resource is entirely within the bandwidth of the UL BWP. (see TS 38.211 [16], clause 6.3.3.2).
+  - prach_msg1_FrequencyStart refers to the starting point or position of the first transmission occasion for a PRACH (Physical Random Access Channel) message in the frequency domain. The offset is measured with respect to PRB 0 (Physical Resource Block 0), which is a fundamental unit of frequency in 5G.
+  - The purpose of configuring this value is to ensure that the resources allocated for the Random Access Channel (RACH) transmission are entirely within the bandwidth of the Uplink Bandwidth Part (UL BWP). This helps in efficient use of the available frequency spectrum in the uplink direction.
+  - In other words, prach_msg1_FrequencyStart determines where in the frequency spectrum the initial transmission for a PRACH message begins, and this offset is set to make sure that it falls within the designated bandwidth for uplink communication.
+
+- If prach_msg1_FrequencyStart = 22, it means that the first transmission for a certain type of communication in 5G (PRACH) starts at a specific position in the frequency spectrum, and that position is 22 steps away from the initial reference point (PRB 0). It's like saying, "Start talking at position 22 in the frequency range." This helps organize and manage communication resources efficiently.
+
+- **zeroCorrelationZoneConfig** :  Table 6.3.3.1-5 in TS 38.211
+  - **Query**
+
+
+- **preambleReceivedTargetPower** : The target power level at the network receiver side (see TS 38.213 [13], clause 7.4, TS 38.321 [3], clauses 5.1.2, 5.1.3). Only multiples of 2 dBm may be chosen (e.g. -202, -200, -198, ...)
+  - A negative value indicates that the signal is weaker than the reference level.
+  - having the value always a multiple of 2 might be a result of the way power levels are quantized or discretized in the system. The use of multiples of 2 could simplify the representation and processing of power values in the underlying technology.
+  - In summary, the negative sign likely indicates a weaker signal compared to a reference, and the requirement for multiples of 2 might be a technical choice for the representation and handling of power levels in the specific system or protocol.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
