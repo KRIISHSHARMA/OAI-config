@@ -297,6 +297,10 @@ Preamble for Msg1. These are also applicable to the MSGA PRACH if the PRACH occa
 - **ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR** : The meaning of this field is twofold: the CHOICE conveys the information about the number of SSBs per RACH occasion. Value oneEighth corresponds to one SSB associated with 8 RACH occasions, value oneFourth corresponds to one SSB associated with 4 RACH occasions, and so on. The ENUMERATED part indicates the number of Contention Based preambles per SSB. Value n4 corresponds to 4 Contention Based preambles per SSB, value n8 corresponds to 8 Contention Based preambles per SSB, and so on. The total number of CB preambles in a RACH occasion is given by CB-preambles-per-SSB * max(1, SSB-per-rach-occasion). See TS 38.213 [13].
   - ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR = half: This means there is one Synchronization Signal Block (SSB) for every two Random Access Channel (RACH) occasions. So, it associates one SSB with every two instances of the network's random access process.
   - ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR = n15: This indicates that there are 15 Contention Based (CB) preambles associated with each Synchronization Signal Block (SSB). So, when a device accesses the network using CB procedures related to a particular SSB, there are 15 preambles available for contention.
+ 
+
+- **ra_ContentionResolutionTimer** : The initial value for the contention resolution timer (see TS 38.321 [3], clause 5.1.5). Value sf8 corresponds to 8 subframes, value sf16 corresponds to 16 subframes, and so on.
+  - ra_ContentionResolutionTimer = 7 means s64 which corresponds to 64 subframes 
 
  
 
