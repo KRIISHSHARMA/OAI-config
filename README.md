@@ -222,6 +222,42 @@ Preamble for Msg1. These are also applicable to the MSGA PRACH if the PRACH occa
           preambleReceivedTargetPower                               = -100; #-84 #Luis -70; #thamizh change # INTEGER (-202..-60) in db 
 #preamblTransMax (0...10) = (3,4,5,6,7,8,10,20,50,100,200)
           preambleTransMax                                          = 7; #thamizh change
+#powerRampingStep
+# 0=dB0,1=dB2,2=dB4,3=dB6
+        powerRampingStep                                            = 2;
+#ra_ReponseWindow
+#1,2,4,8,10,20,40,80
+        ra_ResponseWindow                                           = 5; #thamizh change
+#ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR
+#1=oneeighth,2=onefourth,3=half,4=one,5=two,6=four,7=eight,8=sixteen
+        ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR                = 3; #thamizh change
+#       oneEighth                                   ENUMERATED {n4,n8,n12,n16,n20,n24,n28,n32,n36,n40,n44,n48,n52,n56,n60,n64}, 
+        oneFourth                                   ENUMERATED {n4,n8,n12,n16,n20,n24,n28,n32,n36,n40,n44,n48,n52,n56,n60,n64}, 
+        oneHalf                                     ENUMERATED {n4,n8,n12,n16,n20,n24,n28,n32,n36,n40,n44,n48,n52,n56,n60,n64}, 
+        one                                         ENUMERATED {n4,n8,n12,n16,n20,n24,n28,n32,n36,n40,n44,n48,n52,n56,n60,n64}, 
+        two                                         ENUMERATED {n4,n8,n12,n16,n20,n24,n28,n32}, 
+        four                                        INTEGER (1..16), 
+        eight                                       INTEGER (1..8), 
+        sixteen                                     INTEGER (1..4) 
+#oneHalf (0..15) 4,8,12,16,...60,64
+        ssb_perRACH_OccasionAndCB_PreamblesPerSSB                   = 15; #thamizh change
+#ra_ContentionResolutionTimer
+#(0..7) 8,16,24,32,40,48,56,64
+        ra_ContentionResolutionTimer                                = 7; #4 #thamizh change
+        rsrp_ThresholdSSB                                           = 19; #31; #thamizh change
+#prach-RootSequenceIndex_PR
+#1 = 839, 2 = 139
+        prach_RootSequenceIndex_PR                                  = 2;
+        prach_RootSequenceIndex                                     = 1; #thamizh change
+        # SCS for msg1, can only be 15 for 30 kHz < 6 GHz, takes precendence over the one derived from prach-ConfigIndex
+        #
+        msg1_SubcarrierSpacing                                      = 1,
+# restrictedSetConfig
+# 0=unrestricted, 1=restricted type A, 2=restricted type B
+        restrictedSetConfig                                         = 0,
+
+        msg3_DeltaPreamble                                          = 6; #thamizh change
+        p0_NominalWithGrant                                         = -96 #-86; #Luis-70; #thamizh change
 ```
 
 
@@ -250,7 +286,19 @@ Preamble for Msg1. These are also applicable to the MSGA PRACH if the PRACH occa
 
 - **preambleTransMax** :  Max number of RA preamble transmission performed before declaring a failure (see TS 38.321 [3], clauses 5.1.4, 5.1.5).
 
+- **powerRampingStep** : Power ramping steps for PRACH (see TS 38.321 [3],5.1.3). **Query**
 
+- **ra_ResponseWindow** : Msg2 (RAR) window length in number of slots. The network configures a value lower than or equal to 10 ms when Msg2 is transmitted in licensed spectrum and a value lower than or equal to 40 ms when Msg2 is transmitted with shared spectrum channel access (see TS 38.321 [3], clause 5.1.4). UE ignores the field if included in SCellConfig. If ra-ResponseWindow-v1610 is signalled, UE shall ignore the ra-ResponseWindow (without suffix).
+  - In simpler terms, "ra-ResponseWindow" refers to the time duration, measured in the number of slots, during which the network expects a response (Msg2 or RAR) from the user equipment (UE) in a wireless communication system. The specific configuration of this window depends on whether the message (Msg2) is transmitted in licensed spectrum or shared spectrum.
+  - if Msg2 is sent in licensed spectrum, the window length is set to a value less than or equal to 10 milliseconds. On the other hand, if Msg2 is sent with shared spectrum channel access, the window length is set to a value less than or equal to 40 milliseconds.
+  - In simpler terms, if "ra-ResponseWindow" is set to 5, it means that the network expects a response from the user equipment (UE) within a time window of 5 slots. This suggests that the UE has a specific duration, measured in slots, to acknowledge or respond to a message from the network. **The exact duration of each slot would depend on the specific characteristics of the wireless communication system in use**
+
+- [reference](https://www.nrexplained.com/rrc#RACHConfigGeneric)
+- **ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR** : The meaning of this field is twofold: the CHOICE conveys the information about the number of SSBs per RACH occasion. Value oneEighth corresponds to one SSB associated with 8 RACH occasions, value oneFourth corresponds to one SSB associated with 4 RACH occasions, and so on. The ENUMERATED part indicates the number of Contention Based preambles per SSB. Value n4 corresponds to 4 Contention Based preambles per SSB, value n8 corresponds to 8 Contention Based preambles per SSB, and so on. The total number of CB preambles in a RACH occasion is given by CB-preambles-per-SSB * max(1, SSB-per-rach-occasion). See TS 38.213 [13].
+  - ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR = half: This means there is one Synchronization Signal Block (SSB) for every two Random Access Channel (RACH) occasions. So, it associates one SSB with every two instances of the network's random access process.
+  - ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR = n15: This indicates that there are 15 Contention Based (CB) preambles associated with each Synchronization Signal Block (SSB). So, when a device accesses the network using CB procedures related to a particular SSB, there are 15 preambles available for contention.
+
+ 
 
 
 
