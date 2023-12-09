@@ -302,7 +302,18 @@ Preamble for Msg1. These are also applicable to the MSGA PRACH if the PRACH occa
 - **ra_ContentionResolutionTimer** : The initial value for the contention resolution timer (see TS 38.321 [3], clause 5.1.5). Value sf8 corresponds to 8 subframes, value sf16 corresponds to 16 subframes, and so on.
   - ra_ContentionResolutionTimer = 7 means s64 which corresponds to 64 subframes 
 
- 
+- **rsrp_ThresholdSSB** : UE may select the SS block and corresponding PRACH resource for path-loss estimation and (re)transmission based on SS blocks that satisfy the threshold (see TS 38.213 [13]).
+  - In simpler terms, rsrp_ThresholdSSB is a parameter that helps a User Equipment (UE) decide which Synchronization Signal Block (SSB) to choose for path-loss estimation and potential retransmission. The UE makes this decision by selecting SS blocks that meet a certain signal strength threshold.
+  - So, if the signal strength of an SS block (measured in RSRP, Reference Signal Received Power) is equal to or higher than the specified threshold, the UE may decide to use that SS block for activities like estimating how far the signal has traveled (path-loss estimation) or for potential retransmissions. The specific details and calculations related to this threshold are further defined in the technical specification TS 38.213 [13].
+  - If rsrp_ThresholdSSB = 19, it means that the threshold for the Reference Signal Received Power (RSRP) associated with Synchronization Signal Blocks (SSB) is set to 19.
+  - In simpler terms, when your phone is deciding which SSB to use for tasks like estimating signal strength or retransmitting data, it will choose blocks where the RSRP is 19 or higher. This value essentially sets a standard for what is considered a strong enough signal for certain operations in the wireless communication system.
+
+
+
+
+
+
+
 
 
 
