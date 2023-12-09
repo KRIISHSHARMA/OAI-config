@@ -250,12 +250,7 @@ on a cell level. Pmax was configured to 23 dBm (200 mW)
         # SCS for msg1, can only be 15 for 30 kHz < 6 GHz, takes precendence over the one derived from prach-ConfigIndex
         #
         msg1_SubcarrierSpacing                                      = 1,
-# restrictedSetConfig
-# 0=unrestricted, 1=restricted type A, 2=restricted type B
-        restrictedSetConfig                                         = 0,
 
-        msg3_DeltaPreamble                                          = 6; #thamizh change
-        p0_NominalWithGrant                                         = -96 #-86; #Luis-70; #thamizh change
 ```
 
 
@@ -321,16 +316,20 @@ on a cell level. Pmax was configured to 23 dBm (200 mW)
  - SCS for msg1, can only be 15 for 30 kHz < 6 GHz, takes precendence over the one derived from prach-ConfigIndex
    - There's a rule that says the frequency spacing between parts of the message (Subcarrier Spacing or SCS) can only be as large as 15 when the frequency is between 30 kHz and 6 GHz. Even if there's another rule that suggests a different spacing based on something called prach-ConfigIndex, the first rule (15 for 30 kHz < 6 GHz) is more important. So, your phone follows the first rule and uses a spacing of 15, ignoring what the other rule might suggest.
 
+- Prach-configurationindex = 159 and from the below table we can find out more
 
+![Screenshot from 2023-12-05 18-47-01](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/921d09c4-17af-4893-9843-b7d9a2278062)
+![Screenshot from 2023-12-05 18-47-24](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/c0657651-15cb-41a9-baac-ff90573eb1c3)
+![1586146953045](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/7b5540cd-fd3a-430b-870a-d589341ed4c3)
 
+- For the purpose of slot numbering in the prach-ConfigurationIndex tables, the following subcarrier spacing is be assumed:
+  - 15 kHz for FR1
+  - 60 kHz for FR2.
+ 
+![1586148399537](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/c1892136-ce1e-4fe5-ae64-e0753c5ff278)
 
-
-
-
-
-
-
-
+![calculation](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/8c88ae5f-1506-415b-9574-525c8093ef84)
+![illustration](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/c2b0a7b1-8180-4c0a-972e-bc257593241f)
 
 
 
