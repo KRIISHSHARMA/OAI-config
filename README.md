@@ -208,6 +208,22 @@ on a cell level. Pmax was configured to 23 dBm (200 mW)
 - [reference](https://www.sharetechnote.com/html/5G/5G_RACH.html) : 3GPP TS 38.211 version 16.2.0 Release 16 Table 6.3.3.2-3
 ![Screenshot from 2023-12-05 18-51-32](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/4efd7916-a2a0-48b1-8f1b-59e6556aef52)
 
+- Prach-configurationindex = 159 and from the below table we can find out more
+
+![Screenshot from 2023-12-05 18-47-01](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/921d09c4-17af-4893-9843-b7d9a2278062)
+![Screenshot from 2023-12-10 00-53-01](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/b3fb138a-7902-4a5f-9fbb-59efd819d1f6)
+
+![1586146953045](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/7b5540cd-fd3a-430b-870a-d589341ed4c3)
+
+- For the purpose of slot numbering in the prach-ConfigurationIndex tables, the following subcarrier spacing is be assumed:
+  - 15 kHz for FR1
+  - 60 kHz for FR2.
+ 
+![1586148399537](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/c1892136-ce1e-4fe5-ae64-e0753c5ff278)
+
+![calculation](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/8c88ae5f-1506-415b-9574-525c8093ef84)
+![illustration](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/c2b0a7b1-8180-4c0a-972e-bc257593241f)
+
 
 
 
@@ -316,22 +332,6 @@ on a cell level. Pmax was configured to 23 dBm (200 mW)
 
  - SCS for msg1, can only be 15 for 30 kHz < 6 GHz, takes precendence over the one derived from prach-ConfigIndex
    - There's a rule that says the frequency spacing between parts of the message (Subcarrier Spacing or SCS) can only be as large as 15 when the frequency is between 30 kHz and 6 GHz. Even if there's another rule that suggests a different spacing based on something called prach-ConfigIndex, the first rule (15 for 30 kHz < 6 GHz) is more important. So, your phone follows the first rule and uses a spacing of 15, ignoring what the other rule might suggest.
-
-- Prach-configurationindex = 159 and from the below table we can find out more
-
-![Screenshot from 2023-12-05 18-47-01](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/921d09c4-17af-4893-9843-b7d9a2278062)
-![Screenshot from 2023-12-10 00-53-01](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/b3fb138a-7902-4a5f-9fbb-59efd819d1f6)
-
-![1586146953045](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/7b5540cd-fd3a-430b-870a-d589341ed4c3)
-
-- For the purpose of slot numbering in the prach-ConfigurationIndex tables, the following subcarrier spacing is be assumed:
-  - 15 kHz for FR1
-  - 60 kHz for FR2.
- 
-![1586148399537](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/c1892136-ce1e-4fe5-ae64-e0753c5ff278)
-
-![calculation](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/8c88ae5f-1506-415b-9574-525c8093ef84)
-![illustration](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/c2b0a7b1-8180-4c0a-972e-bc257593241f)
 
 
 
