@@ -202,7 +202,8 @@ on a cell level. Pmax was configured to 23 dBm (200 mW)
 - **prach-ConfigurationIndex** : This value Points to Table for prach-ConfigurationIndex In 38.211. The table defines which PRACH format to use and when to send PRACH in time domain and number of RACH occasions available.
 
 ![Screenshot from 2023-12-05 18-47-01](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/921d09c4-17af-4893-9843-b7d9a2278062)
-![Screenshot from 2023-12-05 18-47-24](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/c0657651-15cb-41a9-baac-ff90573eb1c3)
+![Screenshot from 2023-12-10 00-53-01](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/37d56c08-d01d-4e28-9a3a-9ee08591e62b)
+
 
 - [reference](https://www.sharetechnote.com/html/5G/5G_RACH.html) : 3GPP TS 38.211 version 16.2.0 Release 16 Table 6.3.3.2-3
 ![Screenshot from 2023-12-05 18-51-32](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/4efd7916-a2a0-48b1-8f1b-59e6556aef52)
@@ -319,7 +320,8 @@ on a cell level. Pmax was configured to 23 dBm (200 mW)
 - Prach-configurationindex = 159 and from the below table we can find out more
 
 ![Screenshot from 2023-12-05 18-47-01](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/921d09c4-17af-4893-9843-b7d9a2278062)
-![Screenshot from 2023-12-05 18-47-24](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/c0657651-15cb-41a9-baac-ff90573eb1c3)
+![Screenshot from 2023-12-10 00-53-01](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/b3fb138a-7902-4a5f-9fbb-59efd819d1f6)
+
 ![1586146953045](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/7b5540cd-fd3a-430b-870a-d589341ed4c3)
 
 - For the purpose of slot numbering in the prach-ConfigurationIndex tables, the following subcarrier spacing is be assumed:
