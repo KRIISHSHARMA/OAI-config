@@ -199,9 +199,7 @@ on a cell level. Pmax was configured to 23 dBm (200 mW)
         #rach-ConfigGeneric
           prach_ConfigurationIndex                                  = 159; #thamizh change
 ```
-- **prach-ConfigurationIndex** : the available set of PRACH occasions for the transmission of the Random Access
-Preamble for Msg1. These are also applicable to the MSGA PRACH if the PRACH occasions are shared between 2-step and 4-step RA types; 
-
+- **prach-ConfigurationIndex** : This value Points to Table for prach-ConfigurationIndex In 38.211. The table defines which PRACH format to use and when to send PRACH in time domain and number of RACH occasions available.
 
 ![Screenshot from 2023-12-05 18-47-01](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/921d09c4-17af-4893-9843-b7d9a2278062)
 ![Screenshot from 2023-12-05 18-47-24](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/c0657651-15cb-41a9-baac-ff90573eb1c3)
@@ -262,9 +260,14 @@ Preamble for Msg1. These are also applicable to the MSGA PRACH if the PRACH occa
 
 
 - [reference](https://www.nrexplained.com/rrc#RACHConfigGeneric)
+- [reference](https://www.linkedin.com/pulse/nr-rach-process-syed-mohiuddin/)
+- [reference](https://www.sharetechnote.com/html/5G/5G_RACH.html)
 - **prach_msg1_FDM** : The number of PRACH transmission occasions FDMed in one time instance. (see TS 38.211 [16], clause 6.3.3.2).
   - The "FDM" in "msg1-FDM" stands for Frequency Domain Multiplexing. This implies that multiple Physical Random Access Channel (PRACH) transmission occasions are multiplexed in the frequency domain within one time instance. The PRACH is used by the UE to initiate communication with the network. So, "msg1-FDM" indicates that several PRACH transmission occasions are combined or multiplexed in the frequency domain during a specific time instance, likely to improve efficiency and utilize the available spectrum effectively. The exact number of PRACH transmission occasions FDMed in one time instance would be determined by the configuration and requirements of the specific 5G network deployment.
   - If "msg1-FDM = 2(1)," it likely means that, during the Random Access procedure in 5G, two PRACH transmission occasions are multiplexed in the frequency domain within one time instance. In other words, two devices or User Equipments (UEs) are attempting to initiate communication with the network at the same time, and their PRACH transmissions are separated in the frequency domain to avoid interference. This configuration may be part of the network's strategy to efficiently handle multiple devices attempting to connect simultaneously. The exact implications of "msg1-FDM = 2" would depend on the specific design and parameters of the 5G network being used.
+    
+![1586140220502](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/2e3cbc4c-1f17-47d9-9b1f-1bddb975eea5)
+
 
 
 - **prach_msg1_FrequencyStart** : Offset of lowest PRACH transmission occasion in frequency domain with respective to PRB 0. The value is configured so that the corresponding RACH resource is entirely within the bandwidth of the UL BWP. (see TS 38.211 [16], clause 6.3.3.2).
@@ -284,19 +287,21 @@ Preamble for Msg1. These are also applicable to the MSGA PRACH if the PRACH occa
   - In summary, the negative sign likely indicates a weaker signal compared to a reference, and the requirement for multiples of 2 might be a technical choice for the representation and handling of power levels in the specific system or protocol.
 
 
-- **preambleTransMax** :  Max number of RA preamble transmission performed before declaring a failure (see TS 38.321 [3], clauses 5.1.4, 5.1.5).
+- **preambleTransMax** :  Max number of RA preamble transmission performed before declaring a failure . How many times a UE can transmit MSG1 before declaring RACH failure. (see TS 38.321 [3], clauses 5.1.4, 5.1.5).
 
-- **powerRampingStep** : Power ramping steps for PRACH (see TS 38.321 [3],5.1.3). **Query**
+- **powerRampingStep** : Power ramping steps for PRACH . How many times a UE can transmit MSG1 before declaring RACH failure. (see TS 38.321 [3],5.1.3). 
 
 - **ra_ResponseWindow** : Msg2 (RAR) window length in number of slots. The network configures a value lower than or equal to 10 ms when Msg2 is transmitted in licensed spectrum and a value lower than or equal to 40 ms when Msg2 is transmitted with shared spectrum channel access (see TS 38.321 [3], clause 5.1.4). UE ignores the field if included in SCellConfig. If ra-ResponseWindow-v1610 is signalled, UE shall ignore the ra-ResponseWindow (without suffix).
+- Msg2 (RAR) window length in number of slots. UE scans for PDCCH looking for msg2 response from gNB within the ra-ResponseWindow, if UE did not receive msg2 within the window it will consider RACH failure and start msg1 transmission again.
   - In simpler terms, "ra-ResponseWindow" refers to the time duration, measured in the number of slots, during which the network expects a response (Msg2 or RAR) from the user equipment (UE) in a wireless communication system. The specific configuration of this window depends on whether the message (Msg2) is transmitted in licensed spectrum or shared spectrum.
   - if Msg2 is sent in licensed spectrum, the window length is set to a value less than or equal to 10 milliseconds. On the other hand, if Msg2 is sent with shared spectrum channel access, the window length is set to a value less than or equal to 40 milliseconds.
-  - In simpler terms, if "ra-ResponseWindow" is set to 5, it means that the network expects a response from the user equipment (UE) within a time window of 5 slots. This suggests that the UE has a specific duration, measured in slots, to acknowledge or respond to a message from the network. **The exact duration of each slot would depend on the specific characteristics of the wireless communication system in use**
+  
 
 - [reference](https://www.nrexplained.com/rrc#RACHConfigGeneric)
 - **ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR** : The meaning of this field is twofold: the CHOICE conveys the information about the number of SSBs per RACH occasion. Value oneEighth corresponds to one SSB associated with 8 RACH occasions, value oneFourth corresponds to one SSB associated with 4 RACH occasions, and so on. The ENUMERATED part indicates the number of Contention Based preambles per SSB. Value n4 corresponds to 4 Contention Based preambles per SSB, value n8 corresponds to 8 Contention Based preambles per SSB, and so on. The total number of CB preambles in a RACH occasion is given by CB-preambles-per-SSB * max(1, SSB-per-rach-occasion). See TS 38.213 [13].
-  - ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR = half: This means there is one Synchronization Signal Block (SSB) for every two Random Access Channel (RACH) occasions. So, it associates one SSB with every two instances of the network's random access process.
-  - ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR = n15: This indicates that there are 15 Contention Based (CB) preambles associated with each Synchronization Signal Block (SSB). So, when a device accesses the network using CB procedures related to a particular SSB, there are 15 preambles available for contention.
+- The meaning of this field is twofold: ssb-perRACH-Occasion conveys the information about the number of SSBs mapped per RACH occasion and CB-PreamblesPerSSB indicates the number of Contention Based preambles available per SSB
+  - ssb_perRACH_Occasion = half: This means there is one Synchronization Signal Block (SSB) for every two Random Access Channel (RACH) occasions. So, it associates one SSB with every two instances of the network's random access process.
+  - CB_PreamblesPerSSB_PR = n15: This indicates that there are 15 Contention Based (CB) preambles associated with each Synchronization Signal Block (SSB). So, when a device accesses the network using CB procedures related to a particular SSB, there are 15 preambles available for contention.
  
 
 - **ra_ContentionResolutionTimer** : The initial value for the contention resolution timer (see TS 38.321 [3], clause 5.1.5). Value sf8 corresponds to 8 subframes, value sf16 corresponds to 16 subframes, and so on.
@@ -307,6 +312,18 @@ Preamble for Msg1. These are also applicable to the MSGA PRACH if the PRACH occa
   - So, if the signal strength of an SS block (measured in RSRP, Reference Signal Received Power) is equal to or higher than the specified threshold, the UE may decide to use that SS block for activities like estimating how far the signal has traveled (path-loss estimation) or for potential retransmissions. The specific details and calculations related to this threshold are further defined in the technical specification TS 38.213 [13].
   - If rsrp_ThresholdSSB = 19, it means that the threshold for the Reference Signal Received Power (RSRP) associated with Synchronization Signal Blocks (SSB) is set to 19.
   - In simpler terms, when your phone is deciding which SSB to use for tasks like estimating signal strength or retransmitting data, it will choose blocks where the RSRP is 19 or higher. This value essentially sets a standard for what is considered a strong enough signal for certain operations in the wireless communication system.
+
+- **prach_RootSequenceIndex_PR** : PRACH root sequence index (see TS 38.211 [16], clause 6.3.3.1). The value range depends on whether L=839 or L=139 or L=571 or L=1151. The length of the root sequence corresponding with the index indicated in this IE should be consistent with the one indicated in prach-ConfigurationIndex in the RACH-ConfigDedicated (if configured). If prach-RootSequenceIndex-r16 is signalled, UE shall ignore the prach-RootSequenceIndex (without suffix). Explain in detail
+  - **Query**
+ 
+
+
+ - SCS for msg1, can only be 15 for 30 kHz < 6 GHz, takes precendence over the one derived from prach-ConfigIndex
+   - There's a rule that says the frequency spacing between parts of the message (Subcarrier Spacing or SCS) can only be as large as 15 when the frequency is between 30 kHz and 6 GHz. Even if there's another rule that suggests a different spacing based on something called prach-ConfigIndex, the first rule (15 for 30 kHz < 6 GHz) is more important. So, your phone follows the first rule and uses a spacing of 15, ignoring what the other rule might suggest.
+
+
+
+
 
 
 
