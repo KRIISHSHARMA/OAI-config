@@ -191,6 +191,8 @@ Based on the CORSET **Multiplexing pattern** & Frequency Range following 38.213 
 on a cell level. Pmax was configured to 23 dBm (200 mW)
    - [reference](https://www.techplayon.com/5g-nr-ue-power-classes/#)
 
+## RACH-ConfigCommon
+
 ``` bash
 # subcarrierSpacing
 # 0=kHz15, 1=kHz30, 2=kHz60, 3=kHz120
@@ -334,7 +336,7 @@ on a cell level. Pmax was configured to 23 dBm (200 mW)
    - There's a rule that says the frequency spacing between parts of the message (Subcarrier Spacing or SCS) can only be as large as 15 when the frequency is between 30 kHz and 6 GHz. Even if there's another rule that suggests a different spacing based on something called prach-ConfigIndex, the first rule (15 for 30 kHz < 6 GHz) is more important. So, your phone follows the first rule and uses a spacing of 15, ignoring what the other rule might suggest.
 
 
-
+## PUSCH-ConfigCommon
 
 
 
