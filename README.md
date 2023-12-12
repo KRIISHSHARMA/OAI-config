@@ -351,7 +351,8 @@ on a cell level. Pmax was configured to 23 dBm (200 mW)
 
 ```
 
-- **msg3_DeltaPreamble** : 
+- **msg3_DeltaPreamble** : Power offset between msg3 and RACH preamble transmission. Actual value = field value * 2 [dB] (see TS 38.213 [13], clause 7.1)
+  - MSG3 transmit power — Most recent PRACH preamble transmit power = 2 * msg3-DeltaPreamble
 
 
 
