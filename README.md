@@ -338,7 +338,20 @@ on a cell level. Pmax was configured to 23 dBm (200 mW)
 
 ## PUSCH-ConfigCommon
 
+``` bash
+        msg3_DeltaPreamble                                          = 6; #thamizh change
+        p0_NominalWithGrant                                         = -96 #-86; #Luis-70; #thamizh change
 
+# pucch-ConfigCommon setup :
+# pucchGroupHopping
+# 0 = neither, 1= group hopping, 2=sequence hopping
+        pucchGroupHopping                                           = 0;
+        hoppingId                                                   = 0; #thamizh change
+        p0_nominal                                                  = -96; #Luis-70; #thamizh change
+
+```
+
+- **msg3_DeltaPreamble** : 
 
 
 
