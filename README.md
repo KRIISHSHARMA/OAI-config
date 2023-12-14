@@ -381,6 +381,7 @@ on a cell level. Pmax was configured to 23 dBm (200 mW)
 
 
 - **p0_nominal** : Power control parameter P0 for PUCCH transmissions. Value in dBm. Only even values (step size 2) allowed (see TS 38.213 [13], clause 7.2).
+  - Query
 
 
 
