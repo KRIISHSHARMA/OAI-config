@@ -377,7 +377,10 @@ on a cell level. Pmax was configured to 23 dBm (200 mW)
     - In the context of 5G, these "dance moves" are ways that devices (like your smartphone) send information to the network. The choices about group hopping and sequence hopping help manage how devices share the "dance floor" (communication resources) to avoid interference and communicate more efficiently.
 
 
+- **hoppingId** : Cell-specific scrambling ID for group hopping and sequence hopping if enabled, see TS 38.211 [16], clause 6.3.2.2.
 
+
+- **p0_nominal** : Power control parameter P0 for PUCCH transmissions. Value in dBm. Only even values (step size 2) allowed (see TS 38.213 [13], clause 7.2).
 
 
 
