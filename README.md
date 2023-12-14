@@ -353,6 +353,14 @@ on a cell level. Pmax was configured to 23 dBm (200 mW)
 
 - **msg3_DeltaPreamble** : Power offset between msg3 and RACH preamble transmission. Actual value = field value * 2 [dB] (see TS 38.213 [13], clause 7.1)
   - MSG3 transmit power — Most recent PRACH preamble transmit power = 2 * msg3-DeltaPreamble
+  - msg3_DeltaPreamble is used to ensure that the power level of a specific message (msg3) is appropriately adjusted relative to the power level of the most recent PRACH preamble. The doubling (2 * msg3_DeltaPreamble) is a way to express this adjustment in decibels. This adjustment is crucial for maintaining effective communication and managing power levels in a 5G network.
+  - msg3_DeltaPreamble is like adjusting the volume when sending a special message (msg3) after the initial connection attempt (preamble). It's saying, "Hey, make sure the message after the first one is sent with a power level that is twice the specified value for msg3_DeltaPreamble." This adjustment helps with clear and effective communication in a 5G network.
+
+
+- [PUSCH POWER](https://www.sharetechnote.com/html/5G/5G_PowerControl.html)
+- **p0-NominalWithGrant** : P0 value for PUSCH with grant (except msg3). Value in dBm. Only even values (step size 2) allowed (see TS 38.213 [13], clause 7.1) This field is cell specific
+  -  This parameter is a key component in the [formula](https://www.sharetechnote.com/html/5G/5G_PowerControl.html) used for calculating the uplink transmission power on the PUSCH. It serves as a baseline or reference power level from which adjustments are made based on various factors like path loss, UE power capability, and additional power control commands from the network.
+
 
 
 
