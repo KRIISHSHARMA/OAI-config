@@ -360,8 +360,21 @@ on a cell level. Pmax was configured to 23 dBm (200 mW)
 - [PUSCH POWER](https://www.sharetechnote.com/html/5G/5G_PowerControl.html)
 - **p0-NominalWithGrant** : P0 value for PUSCH with grant (except msg3). Value in dBm. Only even values (step size 2) allowed (see TS 38.213 [13], clause 7.1) This field is cell specific
   -  This parameter is a key component in the [formula](https://www.sharetechnote.com/html/5G/5G_PowerControl.html) used for calculating the uplink transmission power on the PUSCH. It serves as a baseline or reference power level from which adjustments are made based on various factors like path loss, UE power capability, and additional power control commands from the network.
+  -  Query
 
 
+- **pucchGroupHopping** : Configuration of group- and sequence hopping for all the PUCCH formats 0, 1, 3 and 4. Value neither implies neither group or sequence hopping is enabled. Value enable enables group hopping and disables sequence hopping. Value disable disables group hopping and enables sequence hopping (see TS 38.211 [16], clause 6.3.2.2).
+- [resorce allocation](https://www.sharetechnote.com/html/5G/5G_PUCCH.html)
+  - Group Hopping: This is a technique where multiple users (UEs) within a cell share the same set of resources during a certain transmission time. Group hopping helps in spreading the interference caused by multiple users.
+  - Sequence Hopping: This is another technique to reduce interference, where a UE changes its transmission pattern from one occasion to the next. It helps avoid consistent interference patterns.
+  - Value "neither" (0) : Neither group hopping nor sequence hopping is enabled.
+  - Value "enable" (1) : Group hopping is enabled, and sequence hopping is disabled.
+  - Value "disable" (2) : Group hopping is disabled, and sequence hopping is enabled.
+  - Think of it like a dance floor at a party:
+    - "neither": Nobody is doing any special moves. It's a regular dance floor with no special patterns.
+    - "enable": Everyone is moving together in a coordinated way. They're not changing their moves individually, but the whole group is doing something special.
+    - "disable": People are doing their own dance moves, but each person changes their moves from time to time. It's not coordinated like in the "enable" case, but everyone has their own rhythm.
+    - In the context of 5G, these "dance moves" are ways that devices (like your smartphone) send information to the network. The choices about group hopping and sequence hopping help manage how devices share the "dance floor" (communication resources) to avoid interference and communicate more efficiently.
 
 
 
