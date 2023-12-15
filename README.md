@@ -383,8 +383,40 @@ on a cell level. Pmax was configured to 23 dBm (200 mW)
 - **p0_nominal** : Power control parameter P0 for PUCCH transmissions. Value in dBm. Only even values (step size 2) allowed (see TS 38.213 [13], clause 7.2).
   - Query
 
+``` bash
+# ssb_PositionsInBurs_BitmapPR
+# 1=short, 2=medium, 3=long
+      ssb_PositionsInBurst_PR                                       = 2;
+      ssb_PositionsInBurst_Bitmap                                   = 0x1; #thamizh change
 
+# ssb_periodicityServingCell
+# 0 = ms5, 1=ms10, 2=ms20, 3=ms40, 4=ms80, 5=ms160, 6=spare2, 7=spare1
+      ssb_periodicityServingCell                                    = 2;
 
+# dmrs_TypeA_position
+# 0 = pos2, 1 = pos3
+      dmrs_TypeA_Position                                           = 0;
+
+```
+
+- **ssb_PositionsInBurst_PR** :
+  - longbitmap : Bitmap when maximum number of SS/PBCH blocks per half frame equals to 64 as defined in TS 38.213 [13], clause 4.1.
+  - shortbitmap : Bitmap when maximum number of SS/PBCH blocks per half frame equals to 8 as defined in TS 38.213 [13], clause 4.1.
+  - shortbitmap : Bitmap when maximum number of SS/PBCH blocks per half frame equals to 4 as defined in TS 38.213 [13], clause 4.1.
+ 
+
+- **ssb_PositionsInBurst_bitmap** : For operation in licensed spectrum, indicates the time domain positions of the transmitted SS-blocks in a half frame with SS/PBCH blocks as defined in TS 38.213 [13], clause 4.1. The first/leftmost bit corresponds to SS/PBCH block index 0, the second bit corresponds to SS/PBCH block index 1, and so on. Value 0 in the bitmap indicates that the corresponding SS/PBCH block is not transmitted while value 1 indicates that the corresponding SS/PBCH block is transmitted. The network configures the same pattern in this field as in the corresponding field in ServingCellConfigCommonSIB. For operation with shared spectrum channel access, only mediumBitmap is used and the UE assumes that one or more SS/PBCH blocks indicated by ssb-PositionsInBurst may be transmitted within the discovery burst transmission window and have candidate SS/PBCH blocks indexes corresponding to SS/PBCH block indexes provided by ssb-PositionsInBurst (see TS 38.213 [13], clause 4.1). If the k-th bit of ssb-PositionsInBurst is set to 1, the UE assumes that one or more SS/PBCH blocks within the discovery burst transmission window with candidate SS/PBCH block indexes corresponding to SS/PBCH block index equal to k – 1 may be transmitted; if the kt-th bit is set to 0, the UE assumes that the corresponding SS/PBCH block(s) are not transmitted. If ssb-PositionQCL is configured, the k-th bit is set to 0, where k > ssb-PositionQCL and the number of actually transmitted SS/PBCH blocks is not larger than the number of 1's in the bitmap. The network configures the same pattern in this field as in the corresponding field in ServingCellConfigCommonSIB.
+  1. Licensed Spectrum:
+     - There is a pattern (bitmap) indicating when specific SS/PBCH blocks are transmitted within a half frame.
+     - Each bit in the pattern corresponds to a different SS/PBCH block. If the bit is 0, that block is not transmitted; if it's 1, the block is transmitted.
+     - This pattern is set by the network and is the same across different parts of the network.
+    2. Shared Spectrum Channel Access:
+       - Only a part of the pattern (mediumBitmap) is used, and it's called ssb-PositionsInBurst.
+       - The UE (User Equipment) assumes that certain SS/PBCH blocks may be transmitted during a specific transmission window.
+       - The ssb-PositionsInBurst indicates which SS/PBCH blocks might be transmitted, with each bit representing a block. If the bit is 1, the block might be transmitted; if it's 0, the block is assumed not to be transmitted.
+       - If ssb-PositionQCL is configured, certain bits in ssb-PositionsInBurst are set to 0, based on the configured position, and the total number of transmitted blocks is limited.
+
+- ssb-PositionsInBurst = 0x1 and considering the mediumBitmap, the network is suggesting that, during a specific transmission burst, there's a possibility that the first SSB block could be transmitted. This information helps the user equipment (UE) in the network anticipate when and where to expect synchronization signals and control information for more efficient communication and connection establishment.
 
 
 
