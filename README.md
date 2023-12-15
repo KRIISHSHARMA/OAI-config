@@ -382,6 +382,8 @@ on a cell level. Pmax was configured to 23 dBm (200 mW)
 
 - **p0_nominal** : Power control parameter P0 for PUCCH transmissions. Value in dBm. Only even values (step size 2) allowed (see TS 38.213 [13], clause 7.2).
   - Query
+    
+## ServingCellConfigCommon
 
 ``` bash
 # ssb_PositionsInBurs_BitmapPR
@@ -404,7 +406,7 @@ on a cell level. Pmax was configured to 23 dBm (200 mW)
   - shortbitmap : Bitmap when maximum number of SS/PBCH blocks per half frame equals to 8 as defined in TS 38.213 [13], clause 4.1.
   - shortbitmap : Bitmap when maximum number of SS/PBCH blocks per half frame equals to 4 as defined in TS 38.213 [13], clause 4.1.
  
-
+- [reference](https://www.sharetechnote.com/html/5G/5G_SS_Block.html)
 - **ssb_PositionsInBurst_bitmap** : For operation in licensed spectrum, indicates the time domain positions of the transmitted SS-blocks in a half frame with SS/PBCH blocks as defined in TS 38.213 [13], clause 4.1. The first/leftmost bit corresponds to SS/PBCH block index 0, the second bit corresponds to SS/PBCH block index 1, and so on. Value 0 in the bitmap indicates that the corresponding SS/PBCH block is not transmitted while value 1 indicates that the corresponding SS/PBCH block is transmitted. The network configures the same pattern in this field as in the corresponding field in ServingCellConfigCommonSIB. For operation with shared spectrum channel access, only mediumBitmap is used and the UE assumes that one or more SS/PBCH blocks indicated by ssb-PositionsInBurst may be transmitted within the discovery burst transmission window and have candidate SS/PBCH blocks indexes corresponding to SS/PBCH block indexes provided by ssb-PositionsInBurst (see TS 38.213 [13], clause 4.1). If the k-th bit of ssb-PositionsInBurst is set to 1, the UE assumes that one or more SS/PBCH blocks within the discovery burst transmission window with candidate SS/PBCH block indexes corresponding to SS/PBCH block index equal to k – 1 may be transmitted; if the kt-th bit is set to 0, the UE assumes that the corresponding SS/PBCH block(s) are not transmitted. If ssb-PositionQCL is configured, the k-th bit is set to 0, where k > ssb-PositionQCL and the number of actually transmitted SS/PBCH blocks is not larger than the number of 1's in the bitmap. The network configures the same pattern in this field as in the corresponding field in ServingCellConfigCommonSIB.
   1. Licensed Spectrum:
      - There is a pattern (bitmap) indicating when specific SS/PBCH blocks are transmitted within a half frame.
@@ -418,9 +420,13 @@ on a cell level. Pmax was configured to 23 dBm (200 mW)
 
 - ssb-PositionsInBurst = 0x1 and considering the mediumBitmap, the network is suggesting that, during a specific transmission burst, there's a possibility that the first SSB block could be transmitted. This information helps the user equipment (UE) in the network anticipate when and where to expect synchronization signals and control information for more efficient communication and connection establishment.
 
+![NR_SSB_BeamSweeping_01](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/295dc98e-d019-40ea-8dd7-5cedb52107f1)
 
 
+- **ssb_periodicityServingCell** : The SSB periodicity in ms for the rate matching purpose. If the field is absent, the UE applies the value ms5. (see TS 38.213 [13], clause 4.1)
+  - An SSB is periodically transmitted with a periodicity of 5ms, 10ms, 20ms, 40ms, 80ms, or 160ms. Longer SSB periodicities enhance network energy performance, the shorter periodicities facilitate faster cell search for UE’s.
 
+- **dmrs_TypeA_Position** : Position of (first) DM-RS for downlink (see TS 38.211 [16], clause 7.4.1.1.1) and uplink (TS 38.211 [16], clause 6.4.1.1.3).
 
 
 
