@@ -469,3 +469,22 @@ on a cell level. Pmax was configured to 23 dBm (200 mW)
 - **nrofUplinkSlots** : Number of consecutive full UL slots at the end of each DL-UL pattern, see TS 38.213 [13], clause 11.1. In this release, the maximum value for this field is 80. 
 
 - **nrofUplinkSymbols** : Number of consecutive UL symbols in the end of the slot preceding the first full UL slot (as derived from nrofUplinkSlots). The value 0 indicates that there is no partial-uplink slot. (see TS 38.213 [13], clause 11.1).
+
+![IMG_20231217_195712](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/e67a6f9b-c136-44fc-a47b-38a319d8bafa)
+![IMG_20231217_195647](https://github.com/KRIISHSHARMA/OAI-config/assets/86760658/71c3597e-2378-472a-93ec-5cb6c8cedc89)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
